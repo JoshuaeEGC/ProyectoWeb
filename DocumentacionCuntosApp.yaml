@@ -1,0 +1,40 @@
+openapi: 3.0.3
+info:
+  title: CuntosApp
+  description: Será una aplicación que creará cuentos personalizados para niños mediante GPT y creará imágenes que lo acompañan con Dall E. Contará con usuarios como los padres y para los niños, se necesitará tener cuenta para poder generar los cuentos. Estos se podrán guardar en tu perfil además de poder guardarlos en un documento de PDF. Desde el usuario de los padres se podrán poner configuraciones de privacidad y seguridad. El CRUD vendrá implementado tanto en el manejo de usuarios como en el creador de cuentos y las API vendrán con la conexión a GPT y Dall E.
+tags:
+  - name: Login
+    description: Se muestra la vista encargada de que el usuario inicie sesión, en caso de no estar registrado, se podrá crear una cuenta.
+  - name: Pagina principal
+    description: Se muestra la vista de la pantalla principal la cual contará con las opciones disponibles para realizar.
+  - name: Cuentos
+    description: Se muestra la vista de todos los cuentos.
+
+paths:
+  /:
+    get:
+      tags:
+        - Login
+      description: Ruta para introducir datos para acceder.
+    post:
+      tags:
+        - Login
+      description: Ruta para enviar datos para la creacion de usuario.
+  /home:
+    get:
+      tags:
+        - Pagina principal
+      description: Ruta para mostrar la pantalla principal.
+  /cuentos:
+    get:
+      tags:
+        - Cuentos
+      description: Ruta para obtener los cuentos de la base de datos.
+    post:
+      tags:
+        - Cuentos
+      description: Ruta para enviar datos para la creacion del cuento.
+    delete:
+      tags:
+        - Cuentos
+      description: Ruta para eliminar un cuento.
