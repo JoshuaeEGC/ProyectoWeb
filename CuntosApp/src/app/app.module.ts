@@ -9,6 +9,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { CuentosComponent } from './pages/cuentos/cuentos.component';
 import { ErrorsComponent } from './pages/errors/errors.component';
 import { GalleryComponent } from './pages/gallery/gallery.component';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { GalleryComponent } from './pages/gallery/gallery.component';
     GalleryComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
