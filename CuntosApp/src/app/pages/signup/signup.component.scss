@@ -6,10 +6,7 @@ form {
         width: 100%;
     }
 
-    div {
+    div:last-child {
         text-align: right;
     }
-}
-div{
-    text-align: center;
 }
