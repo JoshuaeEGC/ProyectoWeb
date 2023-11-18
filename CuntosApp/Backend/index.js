@@ -10,6 +10,8 @@ const addRouter = require('./Routes/add-routes')
 const app = express();
 
 app.use(express.json());
+app.use(passport.initialize());
+
 
 app.use('/api/libros', libRouter)
 app.use('/user', userRouter)
