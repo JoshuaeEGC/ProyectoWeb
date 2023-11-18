@@ -112,3 +112,11 @@ Content-Type: application/json
     "email": "bubu@ejemplo.com",
     "uuid": "gb3D6CWVphrgbqojGssMZ"
 }
+
+
+################################################
+################################################
+
+@google = http://localhost:3000/auth/google
+
+GET {{google}}
