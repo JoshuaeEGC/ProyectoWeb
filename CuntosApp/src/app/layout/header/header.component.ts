@@ -10,7 +10,9 @@ import { Router } from '@angular/router';
 export class HeaderComponent {
 
   constructor(private router:Router){}
-
+  gotoHome(){
+    this.router.navigateByUrl("home");
+  }
   gotoCuentos(){
     this.router.navigateByUrl("cuentos");
   }
