@@ -1,11 +1,15 @@
 import { Component } from '@angular/core';
-import { HttpClient } from '@angular/common/http'
 
 import { Router } from '@angular/router';
-
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
-import { Observable } from 'rxjs/internal/Observable';
+import { HttpClient } from '@angular/common/http'
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+
+import { LoginService } from '../../shared/services/login/login.service';
+import { response } from 'express';
+
 
 @Component({
   selector: 'app-login',
@@ -17,8 +21,11 @@ export class LoginComponent{
   http: any;
 
   form: FormGroup;
+  Token = '';
   
-  constructor(private httpClient: HttpClient,formBuilder: FormBuilder,private router:Router){
+  constructor(private httpClient: HttpClient, formBuilder: FormBuilder, private router:Router
+    , private LoginService: LoginService){
+
     this.form = formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(8)]]
@@ -29,41 +36,32 @@ export class LoginComponent{
     return this.form.controls[controlName].errors && this.form.controls[controlName].errors![errorName];
   }
 
-  login() {
-    console.log(this.form.value);
-    this.router.navigateByUrl("home");
-  }
-  signup(){
-    this.router.navigateByUrl("signup");
-  }
+  login(){
 
-  msg = '';
-  data: any;
+    let user = {
+      email: this.form.controls['email'].value,
+      password: this.form.controls['password'].value
+    };
 
-  onInit(): Observable<any> {
-    const url: string ='http://localhost:3000/';
-    return this.httpClient.get<any>(url);
-  }
-
-
-  getUser(): void {
-    this.onInit().subscribe((response: any) => {
-    this.msg = response;
-  });
-  }
-  getData() {
-    this.http.get('http://localhost:3000/').subscribe(
+    this.LoginService.login(user).subscribe(
       (response: any) => {
-        this.data = response;
+        this.Token = response;
+        this.router.navigateByUrl("home");
       },
       (error: any) => {
-        console.error('Error al obtener datos:', error);
+        if(error.status === 404){
+          alert('Error pagina no encontrada');
+        }
+        else if(error.status === 401){
+          let dataError = JSON.stringify(error.error.error)
+          alert(`Error: ${dataError}`);
+        }
       }
-    );
+    )
   };
-}
 
-function getData() {
-  throw new Error('Function not implemented.');
-}
+  signup(){
+    this.router.navigateByUrl("signup");
+  };
 
+}

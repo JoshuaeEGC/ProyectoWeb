@@ -26,7 +26,7 @@ router.post('/', async (req, res) =>{
         return
     }
 
-    if( !(user.password == req.body.password) || req.body.password === ''){
+    if( !(user.password === req.body.password) || req.body.password === ''){
         res.status(401).send({error: "Usuario o contreaseña incorrectos"})
         return
     }

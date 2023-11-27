@@ -14,8 +14,7 @@ router.post('/', async (req, res) => {
         uuid: nanoid.nanoid(),
         username,
         email,
-        password,
-        favoritos: []
+        password
     }
 
     User.addUser(newUser)
