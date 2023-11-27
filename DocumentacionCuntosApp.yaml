@@ -11,29 +11,55 @@ tags:
     description: Se muestra la vista de todos los cuentos.
 
 paths:
-  /:
+  /Login: Pagina donde iniciamos todo
+    /user/login: Endpoint para realizar las llamadas de JWT y autenticar usuarios.
+      get:
+        tags:
+          - Login con token
+        description: Ruta para introducir datos para acceder.
+      post:
+        tags:
+          - Login por email
+        description: Ruta para enviar datos para la creacion de usuario.
+
+  /user: Endpoint para manejo de usaurios
     get:
       tags:
-        - Login
-      description: Ruta para introducir datos para acceder.
+        - Usuarios en general
+      description: Ruta para obtener los usuaros de la base de datos. 
     post:
       tags:
-        - Login
-      description: Ruta para enviar datos para la creacion de usuario.
+        - Usuarios
+      description: Ruta para enviar usuario y agregarlo en bd.
+    PUT:
+      tags:
+        - Usuarios
+      description: Ruta para editar un usuario.
+    delete:
+      tags:
+        - Usuarios
+      description: Ruta para eliminar un usuario.
+
   /home:
     get:
       tags:
         - Pagina principal
       description: Ruta para mostrar la pantalla principal.
-  /cuentos:
+
+  /api/Stories:
+    end point para manejar todos los cuentos.
     get:
       tags:
         - Cuentos
-      description: Ruta para obtener los cuentos de la base de datos.
+      description: Ruta para obtener los cuentos de la base de datos. 
     post:
       tags:
         - Cuentos
-      description: Ruta para enviar datos para la creacion del cuento.
+      description: Ruta para enviar datos y agregarlo en bd.
+    PUT:
+      tags:
+        -Cuentos
+      description: Ruta para editar un cuento.
     delete:
       tags:
         - Cuentos
