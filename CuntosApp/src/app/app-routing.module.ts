@@ -8,6 +8,7 @@ import { CuentosComponent } from './pages/cuentos/cuentos.component';
 import { GalleryComponent } from './pages/gallery/gallery.component';
 import { ErrorsComponent } from './pages/errors/errors.component';
 import { SignupComponent } from './pages/signup/signup.component';
+import { ScuentoComponent } from './pages/scuento/scuento.component';
 
 const routes: Routes = [
   {path: '', redirectTo:"login",pathMatch:'full'},
@@ -15,6 +16,7 @@ const routes: Routes = [
   {path: 'signup', component: SignupComponent},
   {path: 'home', component: HomeComponent},
   {path: 'cuentos', component: CuentosComponent},
+  {path: 'scuento/:id', component: ScuentoComponent},
   {path: 'gallery', component: GalleryComponent},
   { path: '**', component: ErrorsComponent }
 

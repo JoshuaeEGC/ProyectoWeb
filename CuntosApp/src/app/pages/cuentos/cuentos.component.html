@@ -1,3 +1,24 @@
 <app-header></app-header>
-<p>cuentos works!</p>
+
+<div class="a">
+
+    <mat-grid-list cols="3" rowHeight="250px">
+        <mat-grid-tile *ngFor="let cuento of cuentos">
+            <mat-card class="cuento-card">
+                <mat-card-header>
+                    <mat-card-title-group>
+                        <img mat-card-md-image src={{cuento.foto}}  alt="Image">
+                        <mat-card-title>{{cuento.titulo}}</mat-card-title>
+                    </mat-card-title-group>
+                </mat-card-header>
+                <br>
+                <mat-card-content>
+                    <button mat-stroked-button (click)="selectCuento(cuento)">Ver cuento</button>
+                </mat-card-content>
+            </mat-card>
+        </mat-grid-tile>
+    </mat-grid-list>
+
+</div>
+
 <app-footer></app-footer>

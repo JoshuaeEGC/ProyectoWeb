@@ -25,6 +25,10 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { SignupComponent } from './pages/signup/signup.component';
 import { HeaderComponent } from './layout/header/header.component';
 import { FooterComponent } from './layout/footer/footer.component';
+import { ScuentoComponent } from './pages/scuento/scuento.component';
+
+import {MatCardModule} from '@angular/material/card';
+import {MatGridListModule} from '@angular/material/grid-list';
 
 @NgModule({
   declarations: [
@@ -36,7 +40,8 @@ import { FooterComponent } from './layout/footer/footer.component';
     HomeComponent,
     SignupComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    ScuentoComponent
   ],
   imports: [
     BrowserModule,
@@ -50,7 +55,9 @@ import { FooterComponent } from './layout/footer/footer.component';
     MatIconModule,
     MatToolbarModule,
     MatInputModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatCardModule,
+    MatGridListModule
   ],
   providers: [],
   bootstrap: [AppComponent]
