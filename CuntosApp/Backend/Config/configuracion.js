@@ -1,11 +1,13 @@
+require('dotenv').config({path: '../.env'})
+
 let dbConfig = {
-    user: "alejandro740521",
-    password: "7ap3SW8yXX5OWC7m",
-    dbName: "Test",
+    user: process.env.USER,
+    password: process.env.PASS,
+    dbName: "Cuentos",
     dbUrl: function (){
         return `mongodb+srv://${this.user}:${this.password}@cluster0.ui6e6mp.mongodb.net/${this.dbName}?retryWrites=true&w=majority`
     },
-    jwtSecret: '724195'
+    jwtSecret: process.env.JWT
 }
 
 module.exports = dbConfig;

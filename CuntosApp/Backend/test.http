@@ -1,57 +1,60 @@
 @host = http://localhost:3000
 
-@libros = http://localhost:3000/api/libros
+###################################################
+
+# ENDPOINT PRINCIPAL DE USUSARIOS #
+
+@Cuentos = http://localhost:3000/api/Stories
 
 ### title, description, author, date (12-30-xxxx)
 GET {{host}}/api/libros?date=02-05-2023
 ###
 GET {{host}}/api/libros?description=no
-###
-GET {{host}}/api/libros?author=checo
-###
-GET {{host}}/api/libros?category=sifi
 
 ###################################################
-GET {{libros}}
+# EndPoint Para obtener Cuentos #
+GET {{Cuentos}}
 
 ###################################################
-POST {{libros}}
+# Cuidado con las comas ( , ) en las llamadas #
+# Si no se pone una URl en imagen se pone una en auto #
+# End Para agregar cuentos #
+POST {{Cuentos}}
 Content-Type: application/json
 
 {
-    "title": "aliens",
-    "description": "Descipcion no tan exacta ",
-    "author": "algun jaime",
-    "category": "Sifi",
-    "publicationDate": "2023-09-02",
-    "imageUrl": "",
-    "rate": 3
+    "title": "trots",
+    "description": "hombre homosexual, enano, tepiteño",
+    "publicationDate": "03/03/2010",
+    "imageUrl": ""
 }
 
 ###################################################
-DELETE {{libros}}/
+# UUID al final del endpoint con / #
+# End Para borrar cuentos #
+DELETE {{Cuentos}}/
 
 ###################################################
-
-PUT {{libros}}/
+# UUID al final del endpoint con / #
+# End Para editar cuentos #
+PUT {{Cuentos}}/Pruebas
 Content-Type:  application/json
 
 {
     "title": "Editado",
-    "description": "Descipcion editada",
-    "author": "checo",
-    "category": "Editado",
+    "description": "Descripcion editada",
     "publicationDate": "2023-05-01",
-    "imageUrl": "",
-    "rate": 4
+    "imageUrl": ""
 }
 
 ###################################################
 ###################################################
 
+# ENDPOINT PRINCIPAL DE USUSARIOS #
 @User = http://localhost:3000/user
 
-###
+###################################################
+# EndPoint Para obtener Usuarios #
 GET {{User}}
 
 ###
@@ -60,7 +63,10 @@ GET {{User}}?username=bubueno
 ###
 GET {{User}}?email=txt
 
-###
+###################################################
+# Cuidado con las comas ( , ) en las llamadas #
+# Todos los campos son requeridos #
+# End Para agregar Usuarios #
 POST {{User}}
 Content-Type: application/json
 
@@ -70,8 +76,10 @@ Content-Type: application/json
     "password": "1234"
 }
 
-###
-PUT {{User}}/6tpFl-kJ4YY1MgXUPkZsU
+###################################################
+# UUID al final del endpoint con / #
+# End Para editar usuarios #
+PUT {{User}}/
 Content-Type: application/json
 
 {
@@ -79,8 +87,10 @@ Content-Type: application/json
     "password": "2627"
 }
 
-###
-DELETE {{User}}/6tpFl-kJ4YY1MgXUPkZsU
+###################################################
+# UUID al final del endpoint con / #
+# End Para borrar usuarios #
+DELETE {{User}}/
 
 ###################################################
 ###################################################
@@ -101,21 +111,10 @@ Content-Type: application/json
     "password": "2627"
 }
 
-###################################################
-###################################################
-@add = http://localhost:3000/user/add
-
-POST {{add}}
-Content-Type: application/json
-
-{
-    "email": "bubu@ejemplo.com",
-    "uuid": "gb3D6CWVphrgbqojGssMZ"
-}
-
-
 ################################################
 ################################################
+
+# Pruebas para google auth #
 
 @google = http://localhost:3000/auth/google
 
