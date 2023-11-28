@@ -29,6 +29,7 @@ import { ScuentoComponent } from './pages/scuento/scuento.component';
 
 import {MatCardModule} from '@angular/material/card';
 import {MatGridListModule} from '@angular/material/grid-list';
+import { CfilterPipe } from './shared/pipes/cfilter.pipe';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import {MatGridListModule} from '@angular/material/grid-list';
     SignupComponent,
     HeaderComponent,
     FooterComponent,
-    ScuentoComponent
+    ScuentoComponent,
+    CfilterPipe
   ],
   imports: [
     BrowserModule,

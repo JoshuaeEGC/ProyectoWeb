@@ -12,6 +12,8 @@ import { CuentosService } from '../../shared/services/cuentos/cuentos.service';
 export class CuentosComponent {
   cuentos: Cuento[] = [];
 
+  filterCuento="";
+
   constructor(private cuentosService:CuentosService,private router:Router){}
 
   ngOnInit(): void {
