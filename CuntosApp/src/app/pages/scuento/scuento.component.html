@@ -3,15 +3,15 @@
 <mat-card class="cuento-card">
     <mat-card-header>
         <mat-card-title-group>
-            <mat-card-title>{{cuento.titulo}}</mat-card-title>
-            <mat-card-subtitle>Fecha de creacion: {{cuento.fecha}}</mat-card-subtitle>
+            <mat-card-title>{{cuento.title}}</mat-card-title>
+            <mat-card-subtitle>Fecha de creacion: {{cuento.publicationDate}}</mat-card-subtitle>
         </mat-card-title-group>
     </mat-card-header>
     <br>
-    <img mat-card-image src={{cuento.foto}}  alt="Image">
+    <img mat-card-image src={{cuento.imageUrl}}  alt="Image">
     <br>
     <mat-card-content>
-        <p>{{cuento.contenido}}</p>
+        <p>{{cuento.description}}</p>
     </mat-card-content>
 </mat-card>
 

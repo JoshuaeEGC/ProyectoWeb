@@ -7,12 +7,12 @@
     </mat-form-field>
 
     <mat-grid-list cols="3" rowHeight="250px">
-        <mat-grid-tile *ngFor="let cuento of cuentos | cfilter:filterCuento">
+        <mat-grid-tile *ngFor="let cuento of cuentos[0] | cfilter:filterCuento">
             <mat-card class="cuento-card">
                 <mat-card-header>
                     <mat-card-title-group>
-                        <img mat-card-md-image src={{cuento.foto}}  alt="Image">
-                        <mat-card-title>{{cuento.titulo}}</mat-card-title>
+                        <img mat-card-md-image src={{cuento.imageUrl}}  alt="Image">
+                        <mat-card-title>{{cuento.title}}</mat-card-title>
                     </mat-card-title-group>
                 </mat-card-header>
                 <br>

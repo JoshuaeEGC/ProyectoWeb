@@ -1,7 +1,8 @@
 export interface Cuento {
-    id: string,
-    foto: string;
-    titulo: string;
-    contenido: string;
-    fecha: string;
+    uuid: string, 
+    title:string, 
+    description:string,
+    publicationDate:string,
+    imageUrl:string,
+    uuidUser:string
 }

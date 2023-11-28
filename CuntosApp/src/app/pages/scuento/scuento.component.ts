@@ -11,11 +11,12 @@ import { CuentosService } from '../../shared/services/cuentos/cuentos.service';
 })
 export class ScuentoComponent {
   cuento:Cuento={
-    id: "",
-    foto: "",
-    titulo: "",
-    contenido: "",
-    fecha:""
+    uuid:"", 
+    title:"", 
+    description:"",
+    publicationDate:"",
+    imageUrl:"",
+    uuidUser:""
   };
   constructor(private cuentosService:CuentosService,private route: ActivatedRoute){}
 
@@ -23,7 +24,12 @@ export class ScuentoComponent {
   ngOnInit(): void {
 
     this.route.params.subscribe(params => {
-      this.cuento=this.cuentosService.getCuentos().find(c => c.id === params["id"])!;
+      this.cuentosService.getCuentos().subscribe((response: any[]) => {
+        this.cuento=response[0].find((c: { uuid: any; }) => c.uuid === params["id"])!;
+        console.log("c ",this.cuento);
+      })
+      
     });
+
   }
 }

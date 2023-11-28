@@ -9,7 +9,7 @@ export class CfilterPipe implements PipeTransform {
     const resultCuentos=[];
     if(args===""){return value;}
     for(const cuento of value){
-      if(cuento.titulo.toLowerCase().indexOf(args.toLowerCase())!=-1){
+      if(cuento.title.toLowerCase().indexOf(args.toLowerCase())!=-1){
         resultCuentos.push(cuento);
       }
     }

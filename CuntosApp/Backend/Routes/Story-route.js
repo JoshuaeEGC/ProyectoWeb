@@ -8,11 +8,11 @@ router.get('/', async (req, res) =>{
     let stories = []
 
     let data = await Story.getStory(req.query)
-    stories.push(data)
+    //stories.push(data)
     //let admon = req.isAdmin
     //stories.push(admon)
 
-    res.send(stories)
+    res.send(data);
 })
 
 router.post('/', async (req, res) => {
