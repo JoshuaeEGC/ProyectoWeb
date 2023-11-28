@@ -16,7 +16,7 @@ router.get('/', async (req, res) =>{
 })
 
 router.post('/', async (req, res) => {
-    let {title, description, publicationDate, imageUrl} = req.body
+    let {title, description, publicationDate, imageUrl, uuidUser} = req.body
 
     let newStory = {
         uuid: nanoid.nanoid(), 
@@ -24,10 +24,15 @@ router.post('/', async (req, res) => {
         description,
         publicationDate,
         imageUrl,
+        uuidUser
     };
 
     if(imageUrl == ''){
         newStory.imageUrl = undefined;
+    }
+
+    if(uuidUser == ''){
+        newStory.uuidUser = undefined;
     }
 
     Story.addStory(newStory)

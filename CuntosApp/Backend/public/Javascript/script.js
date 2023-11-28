@@ -29,10 +29,21 @@ async function generateStoryAndImage() {
     }
 
     const result = await response.json();
+    
+    let dataCuento = result.story.split(':')
+    let temp = dataCuento[1].split('\n');
+
+    let titulo = temp[0]
+    let descripcion = dataCuento[2];
+
+    titulo = eliminarCaracteresEspeciales(titulo);
+    descripcion = eliminarCaracteresEspeciales(descripcion);
 
     // Mostrar el cuento y la imagen después de generarse
-    document.getElementById('storyResult').innerHTML = `<p>${result.story}</p>`;
+    document.getElementById('Ctitulo').innerHTML = `<p>${titulo}</p>`;
+    document.getElementById('Cdescripcion').innerHTML = `<p>${descripcion}</p>`;
     document.getElementById('storyImage').src = result.imageUrl;
+
 
     // Mostrar el contenedor con el cuento e imagen
     document.getElementById('resultContainer').style.display = 'block';
@@ -44,4 +55,6 @@ async function generateStoryAndImage() {
   }
 }
 
-
+function eliminarCaracteresEspeciales(cadena) {
+  return cadena.replace(/[^\w\sáéíóúüñ]/gi, '');
+}

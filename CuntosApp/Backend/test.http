@@ -26,13 +26,14 @@ Content-Type: application/json
     "title": "trots",
     "description": "hombre homosexual, enano, tepiteño",
     "publicationDate": "03/03/2010",
-    "imageUrl": ""
+    "imageUrl": "",
+    "uuidUser": ""
 }
 
 ###################################################
 # UUID al final del endpoint con / #
 # End Para borrar cuentos #
-DELETE {{Cuentos}}/
+DELETE {{Cuentos}}/nFKJrof9vWNnwyGSEwk9s
 
 ###################################################
 # UUID al final del endpoint con / #

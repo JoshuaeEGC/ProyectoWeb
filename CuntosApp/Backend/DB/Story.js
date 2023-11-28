@@ -22,6 +22,11 @@ const storySchema = mongoose.Schema({
         type: String,
         required: false,
         default: "https://elconta.mx/wp-content/uploads/2017/09/por-definir.png"
+    },
+    uuidUser:{
+        type: String,
+        required: true,
+        default: "F3H0d1mGRIgJhSz6qLYqi"
     }
 })
 
@@ -40,7 +45,11 @@ storySchema.statics.getStory = async function(params) {
         query.description = { $regex: params.description, $options: 'i' };
     }
 
-    let projection = {_id:0, uuid: 1, title:1, description:1, publicationDate:1, imageUrl:1 };
+    if (params.uuidUser) {
+        query.uuidUser = { $regex: params.uuidUser, $options: 'i' };
+    }
+
+    let projection = {_id:0, uuid: 1, title:1, description:1, publicationDate:1, imageUrl:1,  uuidUser:1 };
     const story = await Story.find(query, projection);
     //console.log("Funcion GetBooks");
     return story;
@@ -80,6 +89,7 @@ const Story = mongoose.model('Story', storySchema);
 //         description: 'algo',
 //         publicationDate: '02/05/2023',
 //         imageUrl: '',
+//         uuidUser: "axyz-1533"
 //     }
 // )
 
