@@ -17,7 +17,11 @@
                 </mat-card-header>
                 <br>
                 <mat-card-content>
-                    <button mat-stroked-button (click)="selectCuento(cuento)">Ver cuento</button>
+                    <div class="cont">
+                        <button mat-stroked-button (click)="selectCuento(cuento)">Ver cuento</button>
+                        <hr>
+                        <button mat-stroked-button color="warn" (click)="deleteCuento(cuento)">Borrar cuento</button>
+                    </div>
                 </mat-card-content>
             </mat-card>
         </mat-grid-tile>

@@ -24,4 +24,8 @@ export class CuentosComponent {
     console.log(cuento);
     this.router.navigate(["scuento",cuento.id]);
   }
+
+  deleteCuento(cuento:Cuento){
+    
+  }
 }
