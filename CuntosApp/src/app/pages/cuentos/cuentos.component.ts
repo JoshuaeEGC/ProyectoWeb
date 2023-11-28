@@ -18,18 +18,34 @@ export class CuentosComponent {
   constructor(private cuentosService:CuentosService,private router:Router){}
 
   ngOnInit(): void {
+    this.obtenerCuentos();
+  }
+  
+  obtenerCuentos(){
     this.cuentosService.getCuentos().subscribe((response: any) => {
       this.cuentos = response;
       console.log("Cyentos ",this.cuentos);
     });
   }
-
   selectCuento(cuento:any){
     console.log(cuento);
     this.router.navigate(["scuento",cuento.uuid]);
   }
 
   deleteCuento(cuento:any){
-
+    this.cuentosService.deleteCuento(cuento.uuid).subscribe(
+      (response: any) => {
+        this.obtenerCuentos();
+      },
+      (error: any) => {
+        if(error.status === 404){
+          alert('Error al borrar el cuento');
+        }
+        else if(error.status === 401){
+          let dataError = JSON.stringify(error.error.error)
+          alert(`Error: ${dataError}`);
+        }
+      }
+    );
   }
 }

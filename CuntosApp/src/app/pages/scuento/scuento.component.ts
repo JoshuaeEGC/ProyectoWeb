@@ -25,7 +25,7 @@ export class ScuentoComponent {
 
     this.route.params.subscribe(params => {
       this.cuentosService.getCuentos().subscribe((response: any[]) => {
-        this.cuento=response[0].find((c: { uuid: any; }) => c.uuid === params["id"])!;
+        this.cuento=response.find((c: { uuid: any; }) => c.uuid === params["id"])!;
         console.log("c ",this.cuento);
       })
       

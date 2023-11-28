@@ -62,4 +62,11 @@ export class CuentosService {
     //console.log(url);
     return response;
   }
+
+  deleteCuento(uuid:string):any{
+    const headers={'uuid': uuid}
+    const response = this.httpClient.delete("http://localhost:3000/api/Stories/"+uuid);
+    console.log(uuid);
+    return response;
+  }
 }
