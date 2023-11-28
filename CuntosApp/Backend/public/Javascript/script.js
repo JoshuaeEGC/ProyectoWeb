@@ -1,3 +1,4 @@
+
 async function generateStoryAndImage() {
   const generateButton = document.getElementById('generateButton');
 
@@ -47,6 +48,9 @@ async function generateStoryAndImage() {
 
     // Mostrar el contenedor con el cuento e imagen
     document.getElementById('resultContainer').style.display = 'block';
+
+    saveStory(titulo, descripcion, result.imageUrl, 'F3H0d1mGRIgJhSz6qLYqi')
+
   } catch (error) {
     console.error('Error en la solicitud:', error.message);
   } finally {
@@ -57,4 +61,27 @@ async function generateStoryAndImage() {
 
 function eliminarCaracteresEspeciales(cadena) {
   return cadena.replace(/[^\w\sáéíóúüñ]/gi, '');
+}
+
+
+async function saveStory(titulo, descripcion, imagen, userId){
+
+  let currentDate = new Date().toDateString();
+
+  let cuento = {
+    "title": titulo,
+    "description": descripcion,
+    "publicationDate": currentDate,
+    "imageUrl": imagen,
+    "uuidUser": userId
+  }
+
+  let response = await fetch('/api/Stories', {
+    method: 'POST',
+    headers: {
+      "Content-Type": 'application/json'
+    },
+    body: JSON.stringify(cuento)
+
+  })
 }
