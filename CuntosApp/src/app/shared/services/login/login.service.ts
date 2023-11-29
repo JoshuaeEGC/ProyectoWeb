@@ -10,13 +10,13 @@ export class LoginService {
   constructor(private httpClient: HttpClient) { }
 
   login( data: any ): Observable<any> {
-    const response = this.httpClient.post("http://localhost:3000/user/login", data)
+    const response = this.httpClient.post("https://api-web-m5lb.onrender.com/user/login", data)
     //console.log(url);
     return response;
   }
   
   register( data: any ): Observable<any> {
-    const response = this.httpClient.post("http://localhost:3000/user", data)
+    const response = this.httpClient.post("https://api-web-m5lb.onrender.com/user", data)
     return response;
   }
 

@@ -58,14 +58,14 @@ export class CuentosService {
   constructor(private httpClient: HttpClient) { }
 
   getCuentos(): Observable<any> {
-    const response = this.httpClient.get<any>("http://localhost:3000/api/Stories");
+    const response = this.httpClient.get<any>("https://api-web-m5lb.onrender.com/api/Stories");
     //console.log(url);
     return response;
   }
 
   deleteCuento(uuid:string):any{
     const headers={'uuid': uuid}
-    const response = this.httpClient.delete("http://localhost:3000/api/Stories/"+uuid);
+    const response = this.httpClient.delete("https://api-web-m5lb.onrender.com/api/Stories/"+uuid);
     console.log(uuid);
     return response;
   }
