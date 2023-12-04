@@ -13,10 +13,9 @@ import { AuthGuard } from './shared/guards/auth/auth.guard';
 import { UnauthGuard } from './shared/guards/unauth/unauth.guard';
 
 const routes: Routes = [
-  {path: '', redirectTo:"login",pathMatch:'full'},
+  {path: '', component: HomeComponent,canActivate: [AuthGuard]},
   {path: 'login', component: LoginComponent,canActivate: [UnauthGuard]},
   {path: 'signup', component: SignupComponent,canActivate: [UnauthGuard]},
-  {path: 'home', component: HomeComponent,canActivate: [AuthGuard]},
   {path: 'cuentos', component: CuentosComponent,canActivate: [AuthGuard]},
   {path: 'scuento/:id', component: ScuentoComponent,canActivate: [AuthGuard]},
   { path: '**', component: ErrorsComponent }

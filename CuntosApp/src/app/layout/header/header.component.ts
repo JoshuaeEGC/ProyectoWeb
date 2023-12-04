@@ -12,7 +12,7 @@ export class HeaderComponent {
 
   constructor(private router:Router,private tokenService:TokenService){}
   gotoHome(){
-    this.router.navigateByUrl("home");
+    this.router.navigateByUrl("");
   }
   gotoCuentos(){
     this.router.navigateByUrl("cuentos");

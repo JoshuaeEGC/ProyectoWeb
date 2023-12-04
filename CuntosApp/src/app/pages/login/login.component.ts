@@ -46,9 +46,11 @@ export class LoginComponent{
 
     this.LoginService.login(user).subscribe(
       (response: any) => {
-        this.Token = response;
-        this.tokenService.save(this.Token);
-        this.router.navigateByUrl("home");
+        setTimeout(() => {
+          this.Token = response.token;
+          this.tokenService.save(this.Token);
+          this.router.navigateByUrl("");
+        })
       },
       (error: any) => {
         if(error.status === 404){
