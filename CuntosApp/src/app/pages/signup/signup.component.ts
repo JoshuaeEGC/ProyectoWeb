@@ -76,4 +76,8 @@ export class SignupComponent {
     this.router.navigateByUrl("login");
   }
 
+  gotoLogin(){
+    this.router.navigateByUrl("login");
+  }
+
 }

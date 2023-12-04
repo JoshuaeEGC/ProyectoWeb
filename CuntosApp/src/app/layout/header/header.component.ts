@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component,OnInit } from '@angular/core';
 
 import { Router } from '@angular/router';
 import { TokenService } from '../../shared/services/token/token.service';
+import { LoginService } from '../../shared/services/login/login.service';
 
 @Component({
   selector: 'app-header',
@@ -10,7 +11,13 @@ import { TokenService } from '../../shared/services/token/token.service';
 })
 export class HeaderComponent {
 
-  constructor(private router:Router,private tokenService:TokenService){}
+  user:any;
+  constructor(private router:Router,private tokenService:TokenService,private loginService:LoginService){}
+  ngOnInit(): void{
+    setTimeout(() => {
+      this.getUsername();
+    })
+  }
   gotoHome(){
     this.router.navigateByUrl("");
   }
@@ -23,5 +30,14 @@ export class HeaderComponent {
   logout(){
     this.router.navigateByUrl("login");
     this.tokenService.remove();
+  }
+  getUsername(){
+    this.user=this.loginService.getUserData(this.tokenService.get()).subscribe((response: any) => {
+      if(response){
+        this.user = response[0];
+      }else{
+        this.user = "user";
+      }
+    });
   }
 }

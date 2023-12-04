@@ -68,4 +68,8 @@ export class LoginComponent{
     this.router.navigateByUrl("signup");
   };
 
+  saveToken(){
+    this.tokenService.save("google");
+  }
+
 }

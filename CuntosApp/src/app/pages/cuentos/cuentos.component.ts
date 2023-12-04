@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Cuento } from '../../shared/interfaces/cuento';
 import { CuentosService } from '../../shared/services/cuentos/cuentos.service';
 import { json } from 'body-parser';
+import { TokenService } from '../../shared/services/token/token.service';
 
 @Component({
   selector: 'app-cuentos',
@@ -15,7 +16,7 @@ export class CuentosComponent {
 
   filterCuento="";
 
-  constructor(private cuentosService:CuentosService,private router:Router){}
+  constructor(private cuentosService:CuentosService,private router:Router,private tokenService:TokenService){}
 
   ngOnInit(): void {
     this.obtenerCuentos();
