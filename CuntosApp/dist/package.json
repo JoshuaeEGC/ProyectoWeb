@@ -1,0 +1,12 @@
+{
+  "name": "dist",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.e74ee2ba35b64f7b.js",
+  "scripts": {
+    "start": "node index.html",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
