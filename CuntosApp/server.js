@@ -5,7 +5,7 @@ const port = 4000
 
 const app = express();
 
-app.use("", express.static(path))
+app.use("", express.static(path.join(__dirname, 'dist', 'index.html')))
 
 app.get('*', function(req, res) {
     const uri = path.join(__dirname, 'dist', 'index.html');
