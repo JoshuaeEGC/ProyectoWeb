@@ -3,12 +3,13 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "node server.js",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "start-backend": "http-server ./backend -p 3000",
-    "start-both": "concurrently \"npm run start\" \"npm run start-backend\""
+    "start-both": "concurrently \"npm run start\" \"npm run start-backend\"",
+    "postinstall": "ng build"
   },
   "private": true,
   "dependencies": {
