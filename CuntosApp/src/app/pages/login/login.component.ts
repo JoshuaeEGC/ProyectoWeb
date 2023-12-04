@@ -9,6 +9,7 @@ import { Observable } from 'rxjs';
 
 import { LoginService } from '../../shared/services/login/login.service';
 import { response } from 'express';
+import { TokenService } from '../../shared/services/token/token.service';
 
 
 @Component({
@@ -23,7 +24,7 @@ export class LoginComponent{
   form: FormGroup;
   Token = '';
   
-  constructor(private httpClient: HttpClient, formBuilder: FormBuilder, private router:Router
+  constructor(private httpClient: HttpClient,private tokenService:TokenService, formBuilder: FormBuilder, private router:Router
     , private LoginService: LoginService){
 
     this.form = formBuilder.group({
@@ -46,6 +47,7 @@ export class LoginComponent{
     this.LoginService.login(user).subscribe(
       (response: any) => {
         this.Token = response;
+        this.tokenService.save(this.Token);
         this.router.navigateByUrl("home");
       },
       (error: any) => {

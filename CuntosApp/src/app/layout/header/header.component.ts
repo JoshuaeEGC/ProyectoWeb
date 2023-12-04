@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 
 import { Router } from '@angular/router';
+import { TokenService } from '../../shared/services/token/token.service';
 
 @Component({
   selector: 'app-header',
@@ -9,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent {
 
-  constructor(private router:Router){}
+  constructor(private router:Router,private tokenService:TokenService){}
   gotoHome(){
     this.router.navigateByUrl("home");
   }
@@ -21,5 +22,6 @@ export class HeaderComponent {
   }
   logout(){
     this.router.navigateByUrl("login");
+    this.tokenService.remove();
   }
 }

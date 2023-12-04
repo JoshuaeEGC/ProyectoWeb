@@ -9,15 +9,16 @@ import { GalleryComponent } from './pages/gallery/gallery.component';
 import { ErrorsComponent } from './pages/errors/errors.component';
 import { SignupComponent } from './pages/signup/signup.component';
 import { ScuentoComponent } from './pages/scuento/scuento.component';
+import { AuthGuard } from './shared/guards/auth/auth.guard';
+import { UnauthGuard } from './shared/guards/unauth/unauth.guard';
 
 const routes: Routes = [
   {path: '', redirectTo:"login",pathMatch:'full'},
-  {path: 'login', component: LoginComponent},
-  {path: 'signup', component: SignupComponent},
-  {path: 'home', component: HomeComponent},
-  {path: 'cuentos', component: CuentosComponent},
-  {path: 'scuento/:id', component: ScuentoComponent},
-  {path: 'gallery', component: GalleryComponent},
+  {path: 'login', component: LoginComponent,canActivate: [UnauthGuard]},
+  {path: 'signup', component: SignupComponent,canActivate: [UnauthGuard]},
+  {path: 'home', component: HomeComponent,canActivate: [AuthGuard]},
+  {path: 'cuentos', component: CuentosComponent,canActivate: [AuthGuard]},
+  {path: 'scuento/:id', component: ScuentoComponent,canActivate: [AuthGuard]},
   { path: '**', component: ErrorsComponent }
 
 ]
