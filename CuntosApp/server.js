@@ -5,10 +5,10 @@ const port = 4000
 
 const app = express();
 
-app.use("", express.static(path.join(__dirname, 'dist', 'index.html')))
+app.use("", express.static(path.join(__dirname, 'dist', 'cuentos')))
 
 app.get('*', function(req, res) {
-    const uri = path.join(__dirname, 'dist', 'index.html');
+    const uri = path.join(__dirname, 'dist', 'cuentos', 'index.html');
     res.sendfile(uri);
 })
 
